@@ -1,9 +1,11 @@
 import time
+import random
 from threading import Thread
 
 # Creating two empty lists to hold the messages
 # and amount to delay each thread from closing
 Msgs = []
+rndMsgs = []
 Dlys = []
 
 # Declaring a function called "myfunc", that needs a
@@ -18,8 +20,14 @@ def myfunc(i):
     # the value of "i" has been closed
     print("finished sleeping from thread %d" % i)
 
+# A new function called "msgfunc", that needs 3 variables parsed
+# that are used for counting, the messages to display, and the amount
+# to delay, respectively
 def msgfunc(i, msgs, dlys):
+    # sleep function that sleeps for as long as the integer
+    # in the list at location "i"
     time.sleep(int(dlys[i]))
+    # Prints out the message at position "i" in the Msgs list
     print(Msgs[i])
 
 def threadStart(isCustom):
