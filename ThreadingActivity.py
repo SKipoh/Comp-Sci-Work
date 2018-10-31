@@ -32,6 +32,11 @@ def msgfunc(i, msgs, dlys):
     # Prints out the message at position "i" in the Msgs list
     print(Msgs[i])
 
+def rngfunc(i, dlyNum, rndMsgs):
+    print("Test Message: Thread Started")
+    time.sleep(dlyNum)
+    print(rndMsgs[i])
+
 def threadStart(isCustom):
     # An IF statement to check if the user has opted to use
     # their own messages, or just see what's happening with
@@ -57,6 +62,11 @@ def threadStart(isCustom):
             t = Thread(target=msgfunc, args=(i, Msgs, Dlys))
             # Starts the Thread using the the target and
             # arguments in the "Thread" object
+            t.start()
+    elif isCustom == 3:
+        msgNum = input("How Many word would you like to generate[0 - 50]?: ")
+        for i in range(0, int(msgNum)):
+            t = Thread(target=rngfunc, args=(i, random.randint(1, 30),rndMsgs))
             t.start()
 
 def menu():
