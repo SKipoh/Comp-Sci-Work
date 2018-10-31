@@ -32,9 +32,15 @@ def msgfunc(i, msgs, dlys):
     # Prints out the message at position "i" in the Msgs list
     print(Msgs[i])
 
+# Function that has 3 variables parsed: "i" for printing the
+# right message, "dlynum" for determining how long to sleep
+# each thread, and "rngMsgs" as the list of messages that
+# can be printed
 def rngfunc(i, dlyNum, rndMsgs):
-    print("Test Message: Thread Started")
+    # sleep the thread for as long as what "dlyNum" contains,
+    # which is from 0 to 30 seconds
     time.sleep(dlyNum)
+    # Prints the message from "rngMsgs" list, in "i" location
     print(rndMsgs[i])
 
 def threadStart(isCustom):
