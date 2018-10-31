@@ -70,9 +70,18 @@ def threadStart(isCustom):
             # arguments in the "Thread" object
             t.start()
     elif isCustom == 3:
+        # Asks the user for the number of randomly generated messages they
+        # want to print, up to 50 (the size of the list)
         msgNum = input("How Many word would you like to generate[0 - 50]?: ")
+        # A for loop used for starting the threads, in a range between 0 and 
+        # the number the user entered
         for i in range(0, int(msgNum)):
+            # Creates a new Thread Object, assigned to "t",
+            # the thread will run the "rngfunc" function, parsing
+            # the "i", "dlyNum", "rndMsgs" varible as arguments
             t = Thread(target=rngfunc, args=(i, random.randint(1, 30),rndMsgs))
+            # Starts the Thread using the the target and
+            # arguments in the "Thread" object
             t.start()
 
 def menu():
