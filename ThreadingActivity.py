@@ -61,8 +61,10 @@ def threadStart(isCustom):
 
 def menu():
     # Asks the user for whether they just want to see when a Thread is opened or closed,
-    # Or use their own messages and timing
+    # use their own messages and timing, or use words from the generated list
     ans = input("Would You Like Use Custom Messages[1], see Thread Activity[2], or use Generated Messages[3]?: ")
+    
+    # An IF statement used to determine what the user wants to do
     if ans == "1":  
         # For loop that asks the user to enter messages, and the amount
         # time to delay each thread
@@ -70,8 +72,19 @@ def menu():
             Msgs.insert(i, input("Please Enter Message Number %s to Display: " % i))
             Dlys.insert(i, input("Please Enter The Number Of Seconds This Thread Should Run: "))
 
+        # After all the messages and delays have been gathered, run the threadStart function
+        # and parse it the value "1"
         threadStart(1)
     elif ans == "2":
+        # If the user enters "2", then run threadStart and parse "2"
         threadStart(2)
+    elif ans == "3":
+        # If the user enters "3", then run threadStart and parse "3"
+        threadStart(3)
+    elif ans != "1" or ans != "2" or ans != "3":
+        # Error handling to see if the input doesn't equal any of these values,
+        # then it tells the user, and reloads the menu
+        print("Not a valid input!")
+        menu()
 
 menu()
