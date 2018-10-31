@@ -3,9 +3,11 @@ import random
 from threading import Thread
 
 # Creating two empty lists to hold the messages
-# and amount to delay each thread from closing
+# and amount to delay each thread from closing, as
+# well as a list of 50 generated words from the Lorum
+# Ipsum as "random messages"
 Msgs = []
-rndMsgs = []
+rndMsgs = ["Lorem", "ipsum", "dolor", "sit", "amet", "consectetur" "adipiscing", "elit", "Quisque" "gravida", "convallis", "ornare", "Aliquam", "vel", "lorem", "a", "lectus", "commodo", "aliquet", "Aenean" "fermentum", "ante", "vitae", "tempor", "tempus", "ipsum", "magna", "mollis", "tellus", "sit", "amet", "bibendum", "lectus", "diam", "ac", "elit", "Fusce", "condimentum", "vitae", "urna", "ac", "sagittis", "Sed", "iaculis", "nunc", "vel", "sollicitudin", "sollicitudin", "Etiam","maximus"]
 Dlys = []
 
 # Declaring a function called "myfunc", that needs a
@@ -58,7 +60,9 @@ def threadStart(isCustom):
             t.start()
 
 def menu():
-    ans = input("Would You Like Use Custom Messages[1], or just see Thread Activity[2]?: ")
+    # Asks the user for whether they just want to see when a Thread is opened or closed,
+    # Or use their own messages and timing
+    ans = input("Would You Like Use Custom Messages[1], see Thread Activity[2], or use Generated Messages[3]?: ")
     if ans == "1":  
         # For loop that asks the user to enter messages, and the amount
         # time to delay each thread
